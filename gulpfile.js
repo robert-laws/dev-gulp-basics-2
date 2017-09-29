@@ -16,7 +16,7 @@ app.listen('8080', function() {
 })
 
 gulp.task('html', function() {
-  gulp.src('./src/index.pug')
+  gulp.src('./src/pug/index.pug')
     .pipe(pug({
       pretty: true
     }))
@@ -39,7 +39,7 @@ gulp.task('images', function() {
 })
 
 gulp.task('js', function() {
-  gulp.src('./src/js/*/**')
+  gulp.src('./src/js/**')
     .pipe(gulp.dest('./dist/js'))
     .pipe(livereload())
 })
