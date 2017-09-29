@@ -25,7 +25,7 @@ gulp.task('html', function() {
 })
 
 gulp.task('css', function() {
-  gulp.src(['/css/*.css', './sass/*.scss'])
+  gulp.src(['./src/css/*.css', './src/sass/*.scss'])
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('./dist/css'))
@@ -33,22 +33,22 @@ gulp.task('css', function() {
 })
 
 gulp.task('images', function() {
-  gulp.src('./images/*')
-    .pipe(gulp.dest('./dist/images'))
+  gulp.src('./src/img/*')
+    .pipe(gulp.dest('./dist/img'))
     .pipe(livereload())
 })
 
 gulp.task('js', function() {
-  gulp.src('./js/*/**')
-    .pipe(gulp.dest('build/js'))
+  gulp.src('./src/js/*/**')
+    .pipe(gulp.dest('./dist/js'))
     .pipe(livereload())
 })
 
 gulp.task('watch', ['build'], function() {
   livereload.listen()
-  gulp.watch('./pug/**/*.pug', ['html'])
-  gulp.watch('./sass/*.scss', ['css'])
-  gulp.watch('./images/*', ['images'])
+  gulp.watch('./src/**/*.pug', ['html'])
+  gulp.watch('./src/sass/*.scss', ['css'])
+  gulp.watch('./src/img/*', ['images'])
 })
 
 gulp.task('build', ['html', 'css', 'images', 'js'])
