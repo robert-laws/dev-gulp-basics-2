@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/robert-laws/dev-gulp-basics-2#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.13",
     "express": "^4.16.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",

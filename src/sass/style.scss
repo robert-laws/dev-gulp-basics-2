@@ -1,0 +1,138 @@
+$name-color: #FFF;
+$sidebar-font-color: #ababab;
+$sidebar-hover-color: #493F4A;
+$dark-color: #2F292A;
+
+body, html {
+  background: #eadd7c; /* Old browsers */
+  background: -moz-linear-gradient(top, #eadd7c 0%, #ef9781 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #eadd7c 0%,#ef9781 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #eadd7c 0%,#ef9781 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eadd7c', endColorstr='#ef9781',GradientType=0 );
+  height: 100%;
+}
+
+a, p, ul li, h1, h2 {
+  text-decoration: none;
+  font-family: 'Source Sans Pro'
+}
+
+#main-container {
+  background: $dark-color;
+  margin-top: 30px;
+  border-radius: 7px;
+}
+
+#left-bar {
+  padding-left: 0;
+}
+
+#name, .sub-title {
+  text-align: center;
+  display: block;
+}
+
+#name {
+  font-size: 1.3em;
+  color: $name-color;
+  margin-top: 40px;
+  font-weight: bold;
+}
+
+.sub-title {
+  color: $sidebar-font-color;
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul#main-menu {
+  margin: 50px 0;
+}
+
+ul#main-menu li a {
+  background: $dark-color;
+  display: block;
+  width: 100%;
+  margin-left: 10px;
+  color: $sidebar-font-color;
+  padding: 10px 20px;
+
+  &:hover {
+    background: $sidebar-hover-color;
+  }
+}
+
+ul#main-menu li#about {
+  background: #ef9781;
+}
+
+ul#main-menu li#experience {
+  background: #523ac2;
+}
+
+ul#main-menu li#portfolio {
+  background: #AA3AC2;
+}
+
+ul#main-menu li#hire {
+  background: #F4254A;
+}
+
+ul#social-menu {
+  li {
+    display: inline;
+    float: left;
+    width: 33.33%;
+    text-align: center;
+  }
+
+  img {
+    width: 40px;
+  }
+}
+
+#content {
+  background: #FFF;
+  min-height: 600px;
+  border-radius: 0px 7px 7px 0px;
+
+  img {
+    width: 70px;
+  }
+
+  .skill-detail {
+    padding: 15px;
+  }
+
+  h1 {
+    color: #000;
+    text-align: center;
+    font-weight: 300;
+    font-size: 2.8em;
+    margin-top: 60px;
+  }
+
+  h2 {
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+
+  .skill-icons {
+    margin: 20px 0 40px 0;
+  }
+
+  ul.skills {
+    margin-bottom: 100px;
+
+    li {
+      font-weight: bold;
+      color: #463A4C;
+    }
+  }
+}
+

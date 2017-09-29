@@ -2,15 +2,34 @@ doctype html
 html.no-js
   head
     include includes/head.pug
-    title Our Project
+    title Our Pug Project
 
   body
 
     include includes/mixins.pug
 
-    .row#main-container
-      .medium-3.columns#left-bar
+    .grid-container
+      .grid-x#main-container
+        .medium-3.cell#left-bar
 
-        include includes/header.pug
+          include includes/header.pug
+
+        .medium-9.cell#content
+          h1 Help with some development tasks
+
+          .grid-x
+
+            .medium-6.cell.skill-detail
+            
+              +skillinfo(
+              'Frontend','I began working on projects in 1999 with netscape navigator','img/mountains.png')
+
+              +skills('HTML5', 'CSS3', 'Jade/Pug', 'SASS', 'Javascript', 'XML')
+            
+            .medium-6.cell.skill-detail
+            
+              +skillinfo('Backend','It\'s fun to learn some backend skills like server-side programming and databases','img/mountains.png')
+
+              +skills('SQL', 'PHP', 'RUBY', 'C#', 'NODEJS', 'NOSQL')
 
     include includes/footer.pug

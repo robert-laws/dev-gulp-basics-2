@@ -2,17 +2,19 @@ var gulp = require('gulp')
 var pug = require('gulp-pug')
 var sass = require('gulp-sass')
 var concat = require('gulp-concat')
-var livereload = require('gulp-livereload')
-var express = require('express')
-var app = express()
 var gutil = require('gulp-util')
 var path = require('path')
 var data = require('gulp-data')
 
-app.use(express.static(path.resolve('./dist')))
+var browserSync = require('browser-sync').create()
 
-app.listen('8080', function() {
-  gutil.log('listening on', '8080')
+// browser sync
+gulp.task('browserSync', function() {
+  browserSync.init({
+    server: {
+      baseDir: 'dist'
+    }
+  })
 })
 
 gulp.task('html', function() {
@@ -24,7 +26,9 @@ gulp.task('html', function() {
       pretty: true
     }))
     .pipe(gulp.dest('./dist'))
-    .pipe(livereload())
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 })
 
 gulp.task('css', function() {
@@ -32,26 +36,33 @@ gulp.task('css', function() {
     .pipe(sass().on('error', sass.logError))
     .pipe(concat('style.css'))
     .pipe(gulp.dest('./dist/css'))
-    .pipe(livereload())
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 })
 
 gulp.task('images', function() {
   gulp.src('./src/img/*')
     .pipe(gulp.dest('./dist/img'))
-    .pipe(livereload())
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 })
 
 gulp.task('js', function() {
   gulp.src('./src/js/**')
     .pipe(gulp.dest('./dist/js'))
-    .pipe(livereload())
+    .pipe(browserSync.reload({
+      stream: true
+    }))
 })
 
-gulp.task('watch', ['build'], function() {
-  livereload.listen()
+gulp.task('watch', ['browserSync', 'build'], function() {
   gulp.watch('./src/**/*.pug', ['html'])
   gulp.watch('./src/sass/*.scss', ['css'])
   gulp.watch('./src/img/*', ['images'])
 })
 
 gulp.task('build', ['html', 'css', 'images', 'js'])
+
+gulp.task('default', ['watch'])
