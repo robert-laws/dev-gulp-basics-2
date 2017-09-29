@@ -17,6 +17,9 @@ app.listen('8080', function() {
 
 gulp.task('html', function() {
   gulp.src('./src/pug/index.pug')
+    .pipe(data(function(file) {
+      return require('./src/data/data.json')
+    }))
     .pipe(pug({
       pretty: true
     }))
